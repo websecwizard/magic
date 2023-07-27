@@ -188,6 +188,7 @@
         var slide = document.getElementById("slide");
         var total = 7;
         // 100/7 = 14.3% | 28.6 | 42.9 | 57.2 | 71.5 | 85.8 | 100
+        // 100/7 = 16.5 | 33 | 49.5 | 66 | 82.5 | 100
 
         btn[0].onclick = function(){
             slide.style.transform = "translateX(0px)";
@@ -199,7 +200,7 @@
 
         }
         btn[1].onclick = function(){
-            slide.style.transform = "translateX(-10%)";
+            slide.style.transform = "translateX(-16.5%)";
 
             for(i=0;i<total;i++){
                 btn[i].classList.remove("active");
@@ -208,7 +209,7 @@
             
         }
         btn[2].onclick = function(){
-            slide.style.transform = "translateX(-20%)";
+            slide.style.transform = "translateX(-33%)";
 
             for(i=0;i<total;i++){
                 btn[i].classList.remove("active");
@@ -217,7 +218,7 @@
             
         }
         btn[3].onclick = function(){
-            slide.style.transform = "translateX(-30%)";
+            slide.style.transform = "translateX(-49.5%)";
 
             for(i=0;i<total;i++){
                 btn[i].classList.remove("active");
@@ -226,7 +227,7 @@
             
         }
         btn[4].onclick = function(){
-            slide.style.transform = "translateX(-40%)";
+            slide.style.transform = "translateX(-66%)";
 
             for(i=0;i<total;i++){
                 btn[i].classList.remove("active");
@@ -235,7 +236,7 @@
             
         }
         btn[5].onclick = function(){
-            slide.style.transform = "translateX(-50%)";
+            slide.style.transform = "translateX(-82.5%)";
 
             for(i=0;i<total;i++){
                 btn[i].classList.remove("active");
@@ -244,7 +245,7 @@
             
         }
         btn[6].onclick = function(){
-            slide.style.transform = "translateX(-60%)";
+            slide.style.transform = "translateX(-100%)";
 
             for(i=0;i<total;i++){
                 btn[i].classList.remove("active");
