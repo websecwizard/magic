@@ -1,0 +1,255 @@
+<html>
+     <!-- Background Purple #5d55d2 -->
+     <!-- Logo Blue #00aefa -->
+     <!-- Brown Black #5f574f -->
+     <!-- Royal Blue #357df9 -->
+     <!-- /* CSS Comment /* //javascript comment -->
+    <head>
+        <style>
+            .hero{
+                background:#5d55d2;
+                height: 100%;
+                width: 100%;
+                position: relative;
+            }
+            .hero h1 {
+                text-align: center;
+                padding-top: 80px;
+                font-size: 40px;
+                color: yellow;
+            }
+            .slide-row{
+                display: flex;
+                width: 1000%;
+                transition: 0.5s;
+            }
+            .slide-col{
+                width: 33%;
+                min-width: 700px;
+                max-width: 1400px;
+                height: 400px;
+                position: relative;
+            }
+            .user-text{
+                background: white;
+                width: 50%;
+                height: 70%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 10px;
+                color: #5f574f;
+                box-sizing: border-box;
+                
+            }
+            .user-text p{
+                font-size: 18px;
+                line-height:24px;
+                margin:5%;
+            }
+            .user-text h3{
+                margin-left:15%;
+                color: #357df9;
+            }
+            .container{
+                width: 80%;
+                height: 400px;
+                position: absolute;
+                padding-left: 25%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            .indicator{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -50px;
+            }
+            .btn{
+                display: inline-block;
+                height: 15px;
+                width: 15px;
+                margin: 4px;
+                border-radius: 15px;
+                background: white;
+                cursor: pointer;
+                transition: 0.5s;
+            }
+            .active{
+                width: 50px;
+                transition: 0.5s;
+                background:#00aefa;
+            }
+        </style>
+
+        
+
+    </head>
+    <body>
+
+        <div class="hero">
+
+            <div class="container">
+                <div class="indicator">
+                    <!-- 1 Kendrick  BF--> 
+                    <!-- 2 David -->
+                    <!-- 3 Maat BF--> 
+                    <!-- 4 Andy -->
+                    <!-- 5 TomNomNom BF-->
+                    <!-- 6 Dekkster -->
+                    <!-- 7 Jon Williams BF-->
+                    <span class="btn active"></span>
+                    <span class="btn"></span>
+                    <span class="btn"></span>
+                    <span class="btn"></span>
+                    <span class="btn"></span>
+                    <span class="btn"></span>
+                    <span class="btn"></span>
+                </div>
+                    <div class="slide-row" id="slide">
+
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> "Michael is always doing the right thing when moving security forward for not just his customers but the industry as whole. Trusting in him to understand and inform security risks that may face our business has had profound and lasting impact on our ability to serve content to our customers."
+                                </p>
+                                <h3>Kendrick Ubaniak</h3>
+                                <p>BishopFox</p>
+                            </div>
+                        </div>
+
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> "A powerful, technical professional, dedicated to the improvement of every process and deliverable required by teammates and customers. It has been a pleasure knowing and working with Michael."
+                                </p>
+                                <h3>David Edwards</h3>
+                                <p>Synovus</p>
+                            </div>
+                        </div>
+
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> ”WebSecWizard is the combination of stylish, effective design AND built-in security that is necessary in today's online world. Michael is always focused on how to making his web development more visually stunning, optimized, and secure.”
+                                </p>
+                                <h3>Maat Willburn</h3>
+                                <p>BishopFox</p>
+                            </div>
+                        </div>
+
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> "Michael is dedicated to helping his customers solve their toughest technical problems through innovative approaches and cutting edge information, he strives to provide a high quality, end-to-end product that helps drive customer traffic, engagement and business with security in mind always."
+                                </p>
+                                <h3>Andy D.</h3>
+                                <p>[###]</p>
+                            </div>
+                        </div>
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> ”Michael is the epitome of helpful.
+                                    Time and again he puts the customer needs front and center, focusing carefully on what really matters, and ensuring work is done to the highest of standards.”
+                                </p>
+                                <h3>Tom Hudson</h3>
+                                <p>github.com/tomnomnom</p>
+                            </div>
+                        </div>
+
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> "Michael's strong communication skills and unwavering commitment to excellence make him an invaluable asset to any organization seeking to fortify their digital infrastructure against sophisticated cyber threats."
+                                </p>
+                                <h3>John Kotrich</h3>
+                                <p>https://www.youtube.com/channel/UCeJKtLXsLj8FmPLM4HDOmuQ</p>
+                            </div>
+                        </div>
+
+                        <div class="slide-col">
+                            <div class="user-text">
+                                <p> "Michael’s creativity never ceases to amaze me. His clear-sighted problem solving and innovative thinking often lead him to fun and unique solutions. It’s unusual to find a professional who is equally capable in technical and creative capacities, but Michael is one of those rare gems."
+                                </p>
+                                <h3>Jon Williams</h3>
+                                <p>BishopFox</p>
+                            </div>
+                        </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+        var btn = document.getElementsByClassName("btn");
+        var slide = document.getElementById("slide");
+        var total = 7;
+        // 100/7 = 14.3% | 28.6 | 42.9 | 57.2 | 71.5 | 85.8 | 100
+
+        btn[0].onclick = function(){
+            slide.style.transform = "translateX(0px)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+
+        }
+        btn[1].onclick = function(){
+            slide.style.transform = "translateX(-14.3%)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            
+        }
+        btn[2].onclick = function(){
+            slide.style.transform = "translateX(-28.6%)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            
+        }
+        btn[3].onclick = function(){
+            slide.style.transform = "translateX(-42.9%)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            
+        }
+        btn[4].onclick = function(){
+            slide.style.transform = "translateX(-57.2%)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            
+        }
+        btn[5].onclick = function(){
+            slide.style.transform = "translateX(-71.5%)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            
+        }
+        btn[6].onclick = function(){
+            slide.style.transform = "translateX(-85.8%)";
+
+            for(i=0;i<total;i++){
+                btn[i].classList.remove("active");
+            }
+            this.classList.add("active");
+            
+        }
+    </script>
+
+</html>
