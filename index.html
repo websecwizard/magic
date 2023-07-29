@@ -24,6 +24,7 @@
                 width: 100%;
                 transition: 0.5s;
                 overflow:hidden;
+                touch-action: pan-y; /* Allow  scrolling */
             }
             .slide-col{
                 width: 33%;
@@ -245,8 +246,35 @@
         var slideCols = document.getElementsByClassName("slide-col");
         var totalWidth = slideCols.length * 100 + "%";
         slide.style.width = totalWidth;
+
+        // Thumb slide on mobile devices
+    slide.addEventListener('touchstart', function (event) {
+        touchStartX = event.touches[0].clientX;
+    });
+
+    slide.addEventListener('touchmove', function (event) {
+        touchEndX = event.touches[0].clientX;
+    });
+
+    slide.addEventListener('touchend', function () {
+        var touchDiff = touchEndX - touchStartX;
+        if (touchDiff > touchThreshold && btn[0].classList.contains('active')) {
+            navigateSlider(total - 1);
+        } else if (touchDiff < -touchThreshold && btn[total - 1].classList.contains('active')) {
+            navigateSlider(0);
+        } else if (touchDiff > touchThreshold) {
+            var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+            navigateSlider(activeIndex - 1);
+        } else if (touchDiff < -touchThreshold) {
+            var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+            navigateSlider(activeIndex + 1);
+        }
+    });
+
+    // Set the initial active slide to the middle slide
+    navigateSlider(Math.floor(total / 2));
+
+
       </script>
       
 </html>
-
-
