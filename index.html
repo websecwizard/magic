@@ -11,6 +11,7 @@
                 height: 100%;
                 width: 100%;
                 position: relative;
+                overflow-x:hidden;
             }
             .hero h1 {
                 text-align: center;
@@ -20,14 +21,13 @@
             }
             .slide-row{
                 display: flex;
-                width: 1000%;
+                width: 100%;
                 transition: 0.5s;
                 overflow:hidden;
             }
             .slide-col{
                 width: 33%;
-                min-width: 700px;
-                max-width: 1400px;
+                min-width: 500px;
                 height: 400px;
                 position: relative;
                 overflow: hidden;
@@ -83,6 +83,11 @@
                 transition: 0.5s;
                 background:#00aefa;
             }
+
+            @media (max-width: 768px) {
+                .slide-col { max-width: 90%;}
+            }
+
         </style>
 
         
@@ -187,74 +192,61 @@
         var btn = document.getElementsByClassName("btn");
         var slide = document.getElementById("slide");
         var total = 7;
-        // 100/7 = 14.3% | 28.6 | 42.9 | 57.2 | 71.5 | 85.8 | 100
-
-        btn[0].onclick = function(){
-            slide.style.transform = "translateX(0px)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
-            }
-            this.classList.add("active");
-
+      
+        // Function to handle slider navigation
+        function navigateSlider(index) {
+          var translateXValue = -index * (100 / total) + "%";
+          slide.style.transform = "translateX(" + translateXValue + ")";
+      
+          for (var i = 0; i < total; i++) {
+            btn[i].classList.remove("active");
+          }
+          btn[index].classList.add("active");
         }
-        btn[1].onclick = function(){
-            slide.style.transform = "translateX(-14.3%)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
+      
+        btn[0].onclick = function () {
+          navigateSlider(0);
+        };
+        btn[1].onclick = function () {
+          navigateSlider(1);
+        };
+        btn[2].onclick = function () {
+          navigateSlider(2);
+        };
+        btn[3].onclick = function () {
+          navigateSlider(3);
+        };
+        btn[4].onclick = function () {
+          navigateSlider(4);
+        };
+        btn[5].onclick = function () {
+          navigateSlider(5);
+        };
+        btn[6].onclick = function () {
+          navigateSlider(6);
+        };
+      
+        // Keyboard arrow keys navigation
+        document.addEventListener('keydown', function (event) {
+          if (event.keyCode === 37) { // Left arrow key
+            var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+            if (activeIndex > 0) {
+              navigateSlider(activeIndex - 1);
             }
-            this.classList.add("active");
-            
-        }
-        btn[2].onclick = function(){
-            slide.style.transform = "translateX(-28.6%)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
+          } else if (event.keyCode === 39) { // Right arrow key
+            var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+            if (activeIndex < total - 1) {
+              navigateSlider(activeIndex + 1);
             }
-            this.classList.add("active");
-            
-        }
-        btn[3].onclick = function(){
-            slide.style.transform = "translateX(-42.9%)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
-            }
-            this.classList.add("active");
-            
-        }
-        btn[4].onclick = function(){
-            slide.style.transform = "translateX(-57.2%)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
-            }
-            this.classList.add("active");
-            
-        }
-        btn[5].onclick = function(){
-            slide.style.transform = "translateX(-71.5%)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
-            }
-            this.classList.add("active");
-            
-        }
-        btn[6].onclick = function(){
-            slide.style.transform = "translateX(-85.8%)";
-
-            for(i=0;i<total;i++){
-                btn[i].classList.remove("active");
-            }
-            this.classList.add("active");
-            
-        }
-    </script>
-
+          }
+        });
+      
+        // Calculate and set the total width of .slide-row
+        var slideCols = document.getElementsByClassName("slide-col");
+        var totalWidth = slideCols.length * 100 + "%";
+        slide.style.width = totalWidth;
+      </script>
+      
 </html>
-
 
 
