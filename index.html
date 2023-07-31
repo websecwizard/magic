@@ -110,14 +110,13 @@
                     <!-- 1 Kendrick  BF--> 
                     <!-- 2 David -->
                     <!-- 3 Maat BF--> 
-                    <!-- 4 Andy -->
                     <!-- 5 TomNomNom BF-->
                     <!-- 6 Dekkster -->
                     <!-- 7 Jon Williams BF-->
                     <span class="btn active"></span>
                     <span class="btn"></span>
                     <span class="btn"></span>
-                    <span class="btn"></span>
+                    <!-- <span class="btn"></span> -->
                     <span class="btn"></span>
                     <span class="btn"></span>
                     <span class="btn"></span>
@@ -150,7 +149,7 @@
                                 <a href="https://bishopfox.com">BishopFox</a>
                             </div>
                         </div>
-
+<!-- 
                         <div class="slide-col">
                             <div class="user-text">
                                 <p> "Michael is dedicated to helping his customers solve their toughest technical problems through innovative approaches and cutting edge information, he strives to provide a high quality, end-to-end product that helps drive customer traffic, engagement and business with security in mind always."
@@ -158,7 +157,8 @@
                                 <h3>Andy D.</h3>
                                 <p>[###]</p>
                             </div>
-                        </div>
+                        </div> -->
+
                         <div class="slide-col">
                             <div class="user-text">
                                 <p> ”Michael is the epitome of helpful.
@@ -200,7 +200,8 @@
     <script>
         var btn = document.getElementsByClassName("btn");
         var slide = document.getElementById("slide");
-        var total = 7;
+        var total = 6;
+        // Edit this number if count changes
       
         // Function to handle slider navigation
         function navigateSlider(index) {
@@ -231,9 +232,9 @@
         btn[5].onclick = function () {
           navigateSlider(5);
         };
-        btn[6].onclick = function () {
-          navigateSlider(6);
-        };
+        // btn[6].onclick = function () {
+        //   navigateSlider(6);
+        // };
       
         // Keyboard arrow keys navigation
         document.addEventListener('keydown', function (event) {
