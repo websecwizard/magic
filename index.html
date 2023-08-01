@@ -213,6 +213,9 @@
         var touchStartX = 0;
         var touchEndX = 0;
         var touchThreshold = 50; // Adjust this value based on sensitivity
+        
+        var mouseDownX = 0;
+        var isDragging = false;
 
         // Function to handle slider navigation
         function navigateSlider(index) {
@@ -248,7 +251,32 @@
                 navigateSlider(activeIndex + 1);
             }
         });
-      
+
+        slide.addEventListener('mousedown', function (event) {
+            mouseDownX = event.clientX;
+            isDragging = true;
+        });
+
+        slide.addEventListener('mousemove', function (event) {
+            if (isDragging) {
+                var mouseDiff = event.clientX - mouseDownX;
+                var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+                var newIndex = activeIndex - Math.sign(mouseDiff);
+
+                if (newIndex >= 0 && newIndex < total) {
+                    navigateSlider(newIndex);
+                }
+
+                isDragging = false;
+            }
+        });
+
+        slide.addEventListener('mouseup', function () {
+            isDragging = false;
+        });
+
+        
+        
         btn[0].onclick = function () {
           navigateSlider(0);
         };
