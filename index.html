@@ -38,6 +38,7 @@
                 color: #5f574f;
                 box-sizing: border-box;
                 padding:5%;
+                user-select: none;
             }
             .user-text p{
                 margin:10%;
@@ -219,14 +220,15 @@
 
         // Function to handle slider navigation
         function navigateSlider(index) {
-          var translateXValue = -index * (100 / total) + "%";
-          slide.style.transform = "translateX(" + translateXValue + ")";
-      
-          for (var i = 0; i < total; i++) {
+        var newIndex = Math.max(0, Math.min(index, total - 1)); // Ensure the index stays within bounds
+        var translateXValue = -newIndex * (100 / total) + "%";
+        slide.style.transform = "translateX(" + translateXValue + ")";
+
+        for (var i = 0; i < total; i++) {
             btn[i].classList.remove("active");
-          }
-          btn[index].classList.add("active");
         }
+        btn[newIndex].classList.add("active");
+    }
 
             // Thumb slide on mobile devices
         slide.addEventListener('touchstart', function (event) {
@@ -275,7 +277,30 @@
             isDragging = false;
         });
 
-        
+        // Click to scroll left or right
+        var screenWidth = window.innerWidth;
+        var halfScreenWidth = screenWidth / 2;
+
+        window.addEventListener('click', function (event) {
+            // Check if the click occurred on an indicator button
+            if (event.target.classList.contains("btn")) {
+                var indicatorIndex = Array.from(btn).indexOf(event.target);
+                navigateSlider(indicatorIndex);
+            } else {
+                // Perform left or right click navigation based on click position
+                if (event.clientX < halfScreenWidth) {
+                    // Clicked on the left side of the screen
+                    var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+                    navigateSlider(activeIndex - 1);
+                } else {
+                    // Clicked on the right side of the screen
+                    var activeIndex = Array.from(btn).indexOf(document.querySelector('.active'));
+                    navigateSlider(activeIndex + 1);
+                }
+            }
+        });
+
+
         
         btn[0].onclick = function () {
           navigateSlider(0);
